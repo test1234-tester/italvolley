@@ -1,0 +1,661 @@
+/* ============================================================
+   BIGLIETTI.CSS — Stile specifico della pagina Acquisto Biglietti
+   Richiede: shared.css collegato prima di questo file
+   ============================================================ */
+
+/* --- HERO PARTITA --- */
+.match-hero {
+    background: linear-gradient(135deg, #003366 0%, #0073CF 60%, #005fa3 100%);
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.match-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background:
+        radial-gradient(circle at 30% 70%, rgba(255,255,255,0.04) 0%, transparent 60%),
+        radial-gradient(circle at 70% 20%, rgba(206,43,55,0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.match-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+.match-teams-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 60px);
+    margin-bottom: 20px;
+}
+
+.team-block { text-align: center; }
+
+.team-flag-hero {
+    width: clamp(80px, 12vw, 130px);
+    height: clamp(55px, 8vw, 90px);
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+}
+
+.team-name-hero {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(0.85rem, 2vw, 1.3rem);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.vs-hero {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    color: #ce2b37;
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba(206, 43, 55, 0.5);
+    margin-top: -40px;
+}
+
+.match-info-bar {
+    display: flex;
+    justify-content: center;
+    gap: clamp(15px, 3vw, 40px);
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.info-chip {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- LAYOUT PRINCIPALE --- */
+.tickets-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 30px;
+    align-items: start;
+}
+
+/* --- SEZIONE PIANTINA --- */
+.seat-section {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-left: 6px solid #003366;
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+/* Legenda */
+.legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; }
+
+.legend-dot { width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0; }
+.dot-free     { background: #e8f5e9; border: 2px solid #4caf50; }
+.dot-selected { background: #0073CF; border: 2px solid #0073CF; }
+.dot-taken    { background: #e0e0e0; border: 2px solid #bdbdbd; }
+.dot-vip      { background: #fff8e1; border: 2px solid #ffc107; }
+
+/* Piantina arena */
+.arena-wrapper {
+    background: #1a1a2e;
+    border-radius: 16px;
+    padding: 30px 20px;
+    position: relative;
+}
+
+.court-label {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.court-area {
+    background: linear-gradient(180deg, #2d5a27 0%, #3d7a35 50%, #2d5a27 100%);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 30px;
+    position: relative;
+}
+
+.court-area::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: 10%; bottom: 10%;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%);
+}
+
+.court-area-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+}
+
+.sectors-grid {
+    display: grid;
+    grid-template-areas:
+        "north north north"
+        "west  court  east"
+        "south south south";
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.sector {
+    border-radius: 10px;
+    padding: 12px 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.sector-north { grid-area: north; }
+.sector-south { grid-area: south; }
+.sector-west  { grid-area: west; }
+.sector-east  { grid-area: east; }
+.sector-court-placeholder { grid-area: court; }
+
+.sector-free {
+    background: rgba(76, 175, 80, 0.15);
+    border: 2px solid rgba(76, 175, 80, 0.5);
+}
+
+.sector-free:hover {
+    background: rgba(76, 175, 80, 0.3);
+    border-color: #4caf50;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.25);
+}
+
+.sector-vip {
+    background: rgba(255, 193, 7, 0.12);
+    border: 2px solid rgba(255, 193, 7, 0.5);
+}
+
+.sector-vip:hover {
+    background: rgba(255, 193, 7, 0.25);
+    border-color: #ffc107;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.25);
+}
+
+.sector-selected {
+    background: rgba(0, 115, 207, 0.35) !important;
+    border-color: #0073CF !important;
+    box-shadow: 0 4px 20px rgba(0, 115, 207, 0.4) !important;
+}
+
+.sector-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.sector-details { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+.seats-count { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
+.seats-available { background: rgba(76, 175, 80, 0.3); color: #81c784; }
+.seats-price     { background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.8); }
+.seats-vip-tag   { background: rgba(255, 193, 7, 0.3); color: #ffd54f; }
+
+/* Pannello griglia posti */
+.seats-visual-panel { margin-top: 25px; display: none; }
+.seats-visual-panel.active { display: block; }
+
+.seats-panel-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-left: 5px solid #0073CF;
+    padding-left: 12px;
+}
+
+.seats-grid-wrapper { background: #f8f9fa; border-radius: 12px; padding: 20px; }
+
+.stage-label {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #888;
+    padding: 6px;
+    border: 2px dashed #ddd;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 6px;
+    justify-content: center;
+}
+
+.row-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #aaa;
+    width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.seat {
+    width: 22px; height: 22px;
+    border-radius: 4px 4px 2px 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.seat.free     { background: #c8e6c9; border: 1px solid #81c784; }
+.seat.free:hover { background: #4caf50; transform: scale(1.15); z-index: 2; }
+.seat.taken    { background: #e0e0e0; border: 1px solid #bdbdbd; cursor: not-allowed; }
+.seat.selected { background: #0073CF; border: 1px solid #005fa3; transform: scale(1.1); }
+.seat.vip-seat { background: #fff8e1; border: 1px solid #ffc107; }
+.seat.vip-seat:hover { background: #ffc107; transform: scale(1.15); }
+
+.seat-gap { width: 10px; flex-shrink: 0; }
+
+.selected-info {
+    margin-top: 12px;
+    padding: 10px 15px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    border-left: 4px solid #0073CF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1565c0;
+    display: none;
+}
+
+.selected-info.show { display: block; }
+
+/* --- FORM ACQUISTO --- */
+.purchase-form {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+    position: sticky;
+    top: 210px;
+}
+
+.order-summary {
+    background: linear-gradient(135deg, #003366, #0073CF);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.order-summary h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.order-row.total {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding-top: 12px;
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.price-tag {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+.form-group { margin-bottom: 18px; }
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #0073CF;
+    box-shadow: 0 0 0 3px rgba(0, 115, 207, 0.1);
+    background: white;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.payment-section {
+    margin-top: 5px;
+    padding-top: 20px;
+    border-top: 2px dashed #eee;
+}
+
+.payment-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.card-icons { display: flex; gap: 8px; margin-bottom: 15px; }
+
+.card-icon {
+    padding: 5px 10px;
+    border: 2px solid #1b3172;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #1b3172;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-icon:hover {
+    background-color: #a40909;
+    color: white;
+    border-color: #a40909;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(146, 37, 37, 0.5);
+}
+
+.card-icon.active {
+    background-color: #ce2b37;
+    color: white;
+    border-color: #ce2b37;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(206, 43, 55, 0.3);
+}
+
+.btn-purchase {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #003366, #0073CF);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-purchase::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-purchase:hover::before { left: 100%; }
+
+.btn-purchase:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 51, 102, 0.35);
+}
+
+.btn-purchase:active { transform: translateY(0); }
+
+.secure-badge {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.72rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* --- MODALE CONFERMA --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+
+.modal-box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    transform: translateY(30px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-box { transform: translateY(0); }
+
+.modal-icon { font-size: 3.5rem; margin-bottom: 15px; }
+
+.modal-box h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.modal-box p { color: #555; font-size: 0.95rem; margin-bottom: 25px; }
+
+.btn-modal-close {
+    padding: 12px 35px;
+    background: #0073CF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-modal-close:hover { background: #ce2b37; }
+
+/* Tooltip posti */
+.seat[data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.6rem;
+    padding: 3px 7px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* --- RESPONSIVE SPECIFICO BIGLIETTI --- */
+@media (max-width: 900px) {
+    .tickets-container {
+        grid-template-columns: 1fr;
+    }
+    .purchase-form { position: static; }
+}
+
+@media (max-width: 600px) {
+    .match-teams-hero { gap: 15px; }
+    .team-flag-hero { width: 70px; height: 48px; }
+    .seat { width: 18px; height: 18px; }
+}
+
+
+
+
+/* --- SELETTORE PARTITE --- */
+.match-selector-wrapper {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.match-selector {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+.match-selector::-webkit-scrollbar { height: 6px; }
+.match-selector::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
+.match-btn {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 12px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 0.95rem;
+}
+.match-btn span {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #666;
+    display: block;
+    margin-top: 4px;
+}
+.match-btn:hover {
+    border-color: #0073CF;
+    background: #f0f8ff;
+    transform: translateY(-2px);
+}
+.match-btn.active {
+    background: #003366;
+    border-color: #003366;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+}
+.match-btn.active span { color: #b3d4f5; }
+
+
+
+
+  

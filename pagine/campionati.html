@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazionale Femminile Pallavolo | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="cssCampionati.css">
+
+</head>
+<body>
+
+        <header style="background-color: #0073CF;">
+            <div class="header-content">
+                <img src="Loghi/2025_FIPAV_logo_-_azure.png" alt="Logo FIPAV" class="side-logo">
+
+        <div class="title-wrapper">
+            <h1 class="main-title">CAMPIONATI</h1>
+            <div class="subtitle">IL PERCORSO DELLE ATLETE</div>
+        </div>
+
+        <img src="Loghi/images.png" alt="Logo Italia" class="side-logo">
+    </div>
+        
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="roaster.html">Squadra</a></li>
+                <li><a href="biglietti.html">Biglietti</a></li>
+                
+            </ul>
+        </nav>
+        
+</header>
+
+    <main>
+
+        <!-- ===== INDICE DI NAVIGAZIONE ANNI ===== -->
+        <section class="year-nav-section">
+            <p class="year-nav-label">Vai direttamente all'anno</p>
+            <div class="year-nav">
+                <a href="#anno-2022" class="year-btn">
+                    <span class="year-btn-number">2022</span>
+                    <span class="year-btn-desc">VNL &amp; Mondiale</span>
+                </a>
+                <a href="#anno-2023" class="year-btn">
+                    <span class="year-btn-number">2023</span>
+                    <span class="year-btn-desc">Sfide &amp; Cambiamenti</span>
+                </a>
+                <a href="#anno-2024" class="year-btn">
+                    <span class="year-btn-number">2024</span>
+                    <span class="year-btn-desc">Rinascita &amp; Velasco</span>
+                </a>
+                <a href="#anno-2025" class="year-btn">
+                    <span class="year-btn-number">2025</span>
+                    <span class="year-btn-desc">VNL</span>
+                </a>
+            </div>
+        </section>
+        <!-- ===== FINE INDICE ===== -->
+
+        <section class="timeline-section">
+            <div class="timeline">
+
+                    <div class="timeline-item left" id="anno-2022"> 
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2022</span>
+                        <h2>Trionfo in VNL e Bronzo Mondiale</h2>
+                        
+                        <video class="timeline-img" controls muted>
+                            <source src="foto campionati/vnl2022.mp4" type="video/mp4">
+                            Il tuo browser non supporta la riproduzione video.
+                        </video>
+                        
+                        <p>Il 2022 è stato un anno magico per le Azzurre. La squadra ha conquistato la prima storica medaglia d'oro alla Volleyball Nations League ad Ankara, dominando contro il Brasile. Pochi mesi dopo, il percorso si è arricchito con un prestigioso Bronzo ai Campionati Mondiali.</p>
+                    </div>
+                </div>
+                    <div class="timeline-item right" id="anno-2023"> 
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h2>Sfide e Cambiamenti</h2>
+                        
+                        <video class="timeline-img" controls muted>
+                            <source src="foto campionati/europei.mp4" type="video/mp4">
+                            Il tuo browser non supporta la riproduzione video.
+                        </video>
+                        
+                        <p>Un anno di transizione e di sfide intense. Nonostante le difficoltà agli Europei e al torneo di qualificazione olimpica, il gruppo ha dimostrato grande resilienza, ponendo le basi per il rinnovamento e preparando il terreno per il ritorno di grandi campionesse.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left" id="anno-2024"> 
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h2>La Rinascita e il Ritorno di Velasco</h2>
+                        
+                        <video class="timeline-img" controls muted>
+                            <source src="foto campionati/parigi2024.mp4" type="video/mp4">
+                            Il tuo browser non supporta la riproduzione video.
+                        </video>
+                        
+                        <p>L'inizio di una nuova era. Con il ritorno in panchina del leggendario Julio Velasco, la squadra ha ritrovato unione e grinta, puntando tutto sull'obiettivo Parigi 2024 e sulla riaffermazione ai vertici della pallavolo mondiale.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right" id="anno-2025">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h2>La Sfida della VNL 2025</h2>
+                        
+                        <video class="timeline-img" controls muted>
+                            <source src="foto campionati/vnl2025.mp4" type="video/mp4">
+                            Il tuo browser non supporta la riproduzione video.
+                        </video>
+                        
+                        <p>Le Azzurre si preparano ad affrontare una nuova entusiasmante edizione della Volleyball Nations League. Con un gruppo solido e l'esperienza maturata nell'ultimo anno, l'Italia punta a confermarsi tra le potenze mondiali della pallavolo, regalando nuove emozioni ai tifosi in ogni partita della fase a gironi e nelle finali.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+    </main>
+    <footer>
+        <p>&copy; 2026 Federazione Italiana Pallavolo | Area Fan</p>
+    </footer>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Se scrollo verso il basso di almeno 100px, nascondo l'header
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('header-hidden');
+            } else {
+                // Se scrollo verso l'alto, lo faccio riapparire
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        /* Scroll fluido per i link àncora dell'indice */
+        document.querySelectorAll('.year-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+       
+        </body>
+</html>

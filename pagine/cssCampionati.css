@@ -1,0 +1,234 @@
+/* ============================================================
+   CSSCAMPIONATI.CSS — Stile specifico della pagina Campionati
+   Richiede: shared.css collegato prima di questo file
+   ============================================================ */
+
+
+/* --- INDICE DI NAVIGAZIONE ANNI --- */
+.year-nav-section {
+    background: linear-gradient(135deg, #003366 0%, #0073CF 100%);
+    padding: 16px 20px;
+    text-align: center;
+}
+
+.year-nav-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 10px;
+}
+
+.year-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.year-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.30);
+    border-radius: 10px;
+    padding: 8px 22px;
+
+    text-decoration: none;
+    color: white;
+
+    transition: background-color 0.25s ease, border-color 0.25s ease,
+                transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.year-btn:hover {
+    background-color: #ce2b37;
+    border-color: #ce2b37;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(206, 43, 55, 0.45);
+}
+
+.year-btn-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+
+.year-btn-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.75);
+    white-space: nowrap;
+}
+
+.year-btn:hover .year-btn-desc {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+
+/* --- SEZIONE TIMELINE --- */
+.timeline-section {
+    padding: 40px 20px;
+    background-color: #f4f7f9;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Linea verticale centrale */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #0073CF;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    scroll-margin-top: 200px; /* Evita che i link àncora finiscano sotto l'header */
+}
+
+.timeline-item.left  { left: 0; }
+.timeline-item.right { left: 50%; }
+
+/* Pallino sulla linea */
+.timeline-dot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: -12px;
+    background-color: #ce2b37;
+    border: 4px solid #fff;
+    top: 30px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item.right .timeline-dot {
+    left: -12px;
+}
+
+/* Card contenuto */
+.timeline-content {
+    padding: 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-year {
+    display: inline-block;
+    background: #0073CF;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.timeline-content h2 {
+    color: #003366;
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+}
+
+.timeline-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-height: 400px;
+    object-fit: cover;
+    background-color: #000;
+}
+
+.timeline-content p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+
+/* --- RESPONSIVE SPECIFICO CAMPIONATI --- */
+@media (max-width: 768px) {
+
+    /* Indice anni: colonna 2x2 su mobile */
+    .year-nav {
+        gap: 8px;
+        padding-top: 30px;
+    }
+
+    .year-btn {
+        padding: 7px 16px;
+        min-width: 110px;
+    }
+
+    .year-btn-number {
+        font-size: 1rem;
+    }
+
+    /* Linea della timeline tutta a sinistra */
+    .timeline::after {
+        left: 20px;
+        width: 4px;
+    }
+
+    /* Card a piena larghezza, spazio solo a sinistra per la linea+pallino */
+    .timeline-item {
+        width: 100%;
+        padding-left: 55px;
+        padding-right: 15px;
+        left: 0 !important; /* Sovrascrive sia .left che .right */
+    }
+
+    /* Tutti i pallini agganciati alla linea a sinistra */
+    .timeline-item .timeline-dot {
+        left: 8px;
+        right: auto;
+        width: 20px;
+        height: 20px;
+    }
+
+    .timeline-content {
+        padding: 20px 15px;
+    }
+
+    .timeline-content h2 {
+        font-size: 1.2rem;
+    }
+}

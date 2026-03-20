@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acquisto Biglietti | ItalVolley</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="biglietti.css">
+    
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="header-content">
+            <img src="Loghi/2025_FIPAV_logo_-_azure.png" alt="Logo FIPAV" class="side-logo">
+            <div class="title-wrapper">
+                <h1 class="main-title">Biglietti</h1>
+                <div class="subtitle">Nazionale Femminile</div>
+            </div>
+            <img src="Loghi/images.png" alt="Logo Italia" class="side-logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="roaster.html">Squadra</a></li>
+                <li><a href="campionati.html">Campionati</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <div class="match-selector-wrapper">
+    <div class="match-selector">
+        <button class="match-btn active" onclick="loadMatch('m1', this)">
+            🇮🇹 ITA vs BUL 🇧🇬<br><span>3 Giu - 21:30</span>
+        </button>
+        <button class="match-btn" onclick="loadMatch('m2', this)">
+            🇮🇹 ITA vs NED 🇳🇱<br><span>6 Giu - 01:00</span>
+        </button>
+        <button class="match-btn" onclick="loadMatch('m3', this)">
+            🇮🇹 ITA vs TUR 🇹🇷<br><span>6 Giu - 20:30</span>
+        </button>
+        <button class="match-btn" onclick="loadMatch('m4', this)">
+            🇮🇹 ITA vs BRA 🇧🇷<br><span>7 Giu - 19:30</span>
+        </button>
+    </div>
+</div>
+
+<section class="match-hero">
+    <div class="match-badge">🏐 Volleyball Nations League 2026</div>
+    <div class="match-teams-hero">
+        <div class="team-block">
+            <img src="loghi partite/italia.webp" alt="Italia" class="team-flag-hero">
+            <div class="team-name-hero">Italia</div>
+        </div>
+        <div class="vs-hero">VS</div>
+        <div class="team-block">
+            <img src="loghi partite/bulgaria.webp" alt="Avversario" class="team-flag-hero" id="hero-team2-img">
+            <div class="team-name-hero" id="hero-team2-name">Bulgaria</div>
+        </div>
+    </div>
+    <div class="match-info-bar">
+        <div class="info-chip"><span id="hero-date">📅 3 Giugno 2026</span></div>
+        <div class="info-chip"><span id="hero-time">🕘 21:30</span></div>
+        <div class="info-chip"><span>📍</span> Arena BRB Nilson Nelson</div>
+    </div>
+</section>
+
+    <div class="tickets-container">
+
+        <div class="seat-section">
+            <h2 class="section-title">Scegli il tuo posto</h2>
+
+            <div class="legend">
+                <div class="legend-item"><div class="legend-dot dot-free"></div> Disponibile</div>
+                <div class="legend-item"><div class="legend-dot dot-selected"></div> Selezionato</div>
+                <div class="legend-item"><div class="legend-dot dot-taken"></div> Occupato</div>
+                <div class="legend-item"><div class="legend-dot dot-vip"></div> VIP / Tribuna</div>
+            </div>
+
+            <div class="arena-wrapper">
+                <div class="court-label">Seleziona un settore</div>
+
+                <div class="sectors-grid">
+                    <div class="sector sector-north sector-free" data-sector="nord" data-price="25" onclick="selectSector(this)">
+                        <div class="sector-name">Settore Nord</div>
+                        <div class="sector-details">
+                            <span class="seats-count seats-available">42 liberi</span>
+                            <span class="seats-count seats-price">€ 25</span>
+                        </div>
+                    </div>
+
+                    <div class="sector sector-west sector-free" data-sector="ovest" data-price="35" onclick="selectSector(this)">
+                        <div class="sector-name">Tribuna<br>Ovest</div>
+                        <div class="sector-details">
+                            <span class="seats-count seats-available">18 liberi</span>
+                            <span class="seats-count seats-price">€ 35</span>
+                        </div>
+                    </div>
+
+                    <div class="sector sector-court-placeholder" style="background:rgba(45,90,39,0.25); border:2px solid rgba(61,122,53,0.4); border-radius:10px; display:flex; align-items:center; justify-content:center; pointer-events:none;">
+                        <div style="text-align:center;">
+                            <div class="court-area" style="margin:0; height:70px;">
+                                <span class="court-area-text">Campo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sector sector-east sector-vip" data-sector="est" data-price="60" onclick="selectSector(this)">
+                        <div class="sector-name">Tribuna<br>⭐VIP Est</div>
+                        <div class="sector-details">
+                           <span class="seats-count seats-available">38 liberi</span>
+                            <span class="seats-count seats-price">€ 60</span>
+                        </div>
+                    </div>
+
+                    <div class="sector sector-south sector-free" data-sector="sud" data-price="25" onclick="selectSector(this)">
+                        <div class="sector-name">Settore Sud</div>
+                        <div class="sector-details">
+                            <span class="seats-count seats-available">38 liberi</span>
+                            <span class="seats-count seats-price">€ 25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seats-visual-panel" id="seats-panel">
+                <div class="seats-panel-title" id="seats-panel-title">Scegli il posto</div>
+                <div class="seats-grid-wrapper">
+                    <div class="stage-label">◀ CAMPO ▶</div>
+                    <div id="seats-grid"></div>
+                </div>
+                <div class="selected-info" id="selected-info"></div>
+            </div>
+        </div>
+
+        <div class="purchase-form">
+            <h2 class="section-title" style="font-size:1.1rem;">Riepilogo e Pagamento</h2>
+
+            <div class="order-summary">
+                <h4>Il tuo ordine</h4>
+                <div class="order-row">
+                    <span id="summary-match">Italia vs Bulgaria</span>
+                    <span></span>
+                </div>
+                <div class="order-row">
+                    <span>Settore</span>
+                    <span id="summary-sector">—</span>
+                </div>
+                <div class="order-row">
+                    <span>Posto</span>
+                    <span id="summary-seat">—</span>
+                </div>
+                <div class="order-row">
+                    <span>Prezzo biglietto</span>
+                    <span class="price-tag" id="summary-price">€ —</span>
+                </div>
+                <div class="order-row">
+                    <span>Diritti prevendita</span>
+                    <span class="price-tag">€ 2.00</span>
+                </div>
+                <div class="order-row total">
+                    <span>TOTALE</span>
+                    <span class="price-tag" id="summary-total">€ —</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nome e Cognome</label>
+                <input type="text" id="field-name" placeholder="Es. Mario Rossi">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="field-email" placeholder="mario@email.it">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input type="tel" id="field-phone" placeholder="+39 333...">
+                </div>
+                <div class="form-group">
+                    <label>Data di nascita</label>
+                    <input type="date" id="field-dob">
+                </div>
+            </div>
+            
+
+            <div class="payment-section">
+                <div class="payment-title">Metodo di Pagamento</div>
+                <div class="card-icons">
+                    <div class="card-icon visa">VISA</div>
+                    <div class="card-icon mc">MC</div>
+                    <div class="card-icon paypal">PayPal</div>
+                </div>
+                <div class="form-group">
+                    <label>Numero Carta</label>
+                    <input type="text" id="field-card" placeholder="•••• •••• •••• ••••" maxlength="19">
+                </div>
+                <div class="form-row">
+                 <div class="form-group">
+                    <label>Scadenza</label>
+                    <input type="text" id="field-exp" placeholder="MM/AA" maxlength="5">
+                </div>
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" id="field-cvv" placeholder="•••" maxlength="3">
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-purchase" onclick="handlePurchase()">
+                🎟️ Acquista Biglietto
+            </button>
+
+            <div class="secure-badge">
+                🔒 Pagamento sicuro e crittografato SSL
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="confirm-modal">
+        <div class="modal-box">
+            <div class="modal-icon">🎉</div>
+            <h3>Acquisto Completato!</h3>
+            <p id="modal-message">Il tuo biglietto è stato confermato.<br>Controlla la tua email per il QR code d'ingresso.</p>
+            <button class="btn-modal-close" onclick="closeModal()">Perfetto!</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Federazione Italiana Pallavolo | Area Fan</p>
+    </footer>
+
+   <script>
+    // ==========================================
+    // 1. DATI JSON E CONFIGURAZIONI INIZIALI
+    // ==========================================
+    const matchesDB = {
+        m1: { team: "Bulgaria", img: "loghi partite/bulgaria.webp", date: "3 Giugno 2026", time: "21:30" },
+        m2: { team: "Olanda", img: "loghi partite/olanda.webp", date: "6 Giugno 2026", time: "01:00" },
+        m3: { team: "Turchia", img: "loghi partite/turchia.webp", date: "6 Giugno 2026", time: "20:30" },
+        m4: { team: "Brasile", img: "loghi partite/brasile.webp", date: "7 Giugno 2026", time: "19:30" }
+    };
+
+    const baseSectors = {
+        nord:  { label: 'Settore Nord', price: 25, rows: 5, cols: 12 },
+        sud:   { label: 'Settore Sud', price: 25, rows: 5, cols: 12 },
+        ovest: { label: 'Tribuna Ovest', price: 35, rows: 4, cols: 10 },
+        est:   { label: 'Tribuna VIP Est', price: 60, rows: 3, cols: 8, isVip: true }
+    };
+
+    const initialBookings = {
+        m1: { nord: ["1-3","1-7","2-4"], sud: ["1-1","1-2","3-5"], ovest: ["1-2","2-1"], est: ["1-1","3-6"] },
+        m2: { nord: ["4-8","4-9","5-2"], sud: ["2-10","2-11"], ovest: ["3-4","3-5"], est: ["2-4"] },
+        m3: { nord: ["2-5","2-6","3-1"], sud: ["4-3","5-7"], ovest: ["4-7","4-8"], est: ["3-7","3-8"] },
+        m4: { nord: ["1-1","1-2","1-3","1-4"], sud: ["5-8","5-9"], ovest: ["1-5","1-6","4-9","4-10"], est: ["1-1","1-2","2-4"] }
+    };
+
+    // ==========================================
+    // 2. GESTIONE LOCAL STORAGE
+    // ==========================================
+    const STORAGE_KEY = 'italvolley_tickets_db';
+    let appState = {};
+    let currentMatchId = 'm1';
+    let currentSector = null;
+    let selectedSeat = null;
+
+    function initStorage() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            appState = JSON.parse(stored);
+        } else {
+            appState = JSON.parse(JSON.stringify(initialBookings));
+            saveStorage();
+        }
+    }
+
+    function saveStorage() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+    }
+
+    // ==========================================
+    // 3. LOGICA DI SELEZIONE E UI
+    // ==========================================
+    function loadMatch(matchId, btnElement) {
+        currentMatchId = matchId;
+        currentSector = null;
+        selectedSeat = null;
+
+        // Aggiorna Bottoni
+        document.querySelectorAll('.match-btn').forEach(btn => btn.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+
+        // Aggiorna Hero
+        const match = matchesDB[matchId];
+        document.getElementById('hero-team2-name').textContent = match.team;
+        document.getElementById('hero-team2-img').src = match.img;
+        document.getElementById('hero-date').innerHTML = `📅 ${match.date}`;
+        document.getElementById('hero-time').innerHTML = `🕘 ${match.time}`;
+        
+        // Aggiorna titolo riepilogo
+        const summaryMatchTitle = document.getElementById('summary-match');
+        if(summaryMatchTitle) summaryMatchTitle.textContent = `Italia vs ${match.team}`;
+
+        // Reset UI
+        document.querySelectorAll('.sector').forEach(s => s.classList.remove('sector-selected'));
+        const seatsPanel = document.getElementById('seats-panel');
+        if(seatsPanel) seatsPanel.classList.remove('active');
+        
+        const selectedInfo = document.getElementById('selected-info');
+        if(selectedInfo) selectedInfo.classList.remove('show');
+        
+        updateSummary();
+        updateSectorCounters();
+    }
+
+    function updateSectorCounters() {
+        for (const [secKey, secData] of Object.entries(baseSectors)) {
+            const totalSeats = secData.rows * secData.cols;
+            const takenSeats = appState[currentMatchId][secKey]?.length || 0;
+            const available = totalSeats - takenSeats;
+            
+            // 🔧 FIX: Utilizzo l'attributo [data-sector="..."] per trovare il div corretto,
+            // dato che le classi (es. sector-north) non corrispondevano alle chiavi in italiano (es. nord)
+            const sectorEl = document.querySelector(`.sector[data-sector="${secKey}"] .seats-available`);
+            if (sectorEl) sectorEl.textContent = `${available} liberi`;
+        }
+    }
+
+    function selectSector(el) {
+        document.querySelectorAll('.sector').forEach(s => s.classList.remove('sector-selected'));
+        el.classList.add('sector-selected');
+
+        currentSector = el.dataset.sector;
+        selectedSeat = null;
+
+        updateSummary();
+        renderSeats();
+    }
+
+    function renderSeats() {
+        const data = baseSectors[currentSector];
+        const takenSeats = appState[currentMatchId][currentSector] || [];
+        const grid = document.getElementById('seats-grid');
+        const panel = document.getElementById('seats-panel');
+        const title = document.getElementById('seats-panel-title');
+
+        if(!grid || !panel || !title) return;
+
+        title.textContent = data.label + ' — Seleziona un posto';
+        panel.classList.add('active');
+        grid.innerHTML = '';
+
+        for (let r = 1; r <= data.rows; r++) {
+            const row = document.createElement('div');
+            row.className = 'seat-row';
+
+            const lbl = document.createElement('div');
+            lbl.className = 'row-label';
+            lbl.textContent = String.fromCharCode(64 + r); 
+            row.appendChild(lbl);
+
+            const mid = Math.floor(data.cols / 2);
+
+            for (let c = 1; c <= data.cols; c++) {
+                if (c === mid + 1) {
+                    const gap = document.createElement('div');
+                    gap.className = 'seat-gap';
+                    row.appendChild(gap);
+                }
+
+                const seatId = `${r}-${c}`;
+                const isTaken = takenSeats.includes(seatId);
+                const seat = document.createElement('div');
+                const seatLabel = `${String.fromCharCode(64 + r)}${c}`;
+
+                seat.className = `seat ${data.isVip ? 'vip-seat' : 'free'} ${isTaken ? 'taken' : ''}`;
+                seat.dataset.id = seatId;
+                seat.dataset.label = seatLabel;
+                seat.title = isTaken ? 'Posto occupato' : `Posto ${seatLabel}`;
+
+                if (!isTaken) {
+                    seat.addEventListener('click', () => selectSeat(seat, seatLabel, seatId));
+                }
+
+                row.appendChild(seat);
+            }
+            grid.appendChild(row);
+        }
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function selectSeat(el, label, id) {
+        const prev = document.querySelector('.seat.selected');
+        if (prev) prev.classList.remove('selected');
+
+        el.classList.add('selected');
+        selectedSeat = { label, id };
+
+        updateSummary();
+
+        const info = document.getElementById('selected-info');
+        if(info) {
+            info.textContent = `✅ Posto selezionato: ${label} — ${baseSectors[currentSector].label}`;
+            info.classList.add('show');
+        }
+    }
+
+    function updateSummary() {
+        const sectorLabel = currentSector ? baseSectors[currentSector].label : '—';
+        const seatLabel = selectedSeat ? selectedSeat.label : '—';
+        const price = currentSector ? baseSectors[currentSector].price : null;
+        const total = price ? (price + 2).toFixed(2) : '—';
+
+        const summarySector = document.getElementById('summary-sector');
+        const summarySeat = document.getElementById('summary-seat');
+        const summaryPrice = document.getElementById('summary-price');
+        const summaryTotal = document.getElementById('summary-total');
+
+        if(summarySector) summarySector.textContent = sectorLabel;
+        if(summarySeat) summarySeat.textContent = seatLabel;
+        if(summaryPrice) summaryPrice.textContent = price ? `€ ${price.toFixed(2)}` : '€ —';
+        if(summaryTotal) summaryTotal.textContent = price ? `€ ${total}` : '€ —';
+    }
+
+    // ==========================================
+    // 4. ACQUISTO E MODALE
+    // ==========================================
+    function handlePurchase() {
+        const nameEl = document.getElementById('field-name');
+        const emailEl = document.getElementById('field-email');
+        
+        const name = nameEl ? nameEl.value.trim() : '';
+        const email = emailEl ? emailEl.value.trim() : '';
+
+        if (!currentSector || !selectedSeat) {
+            alert('⚠️ Seleziona prima il settore e il posto desiderato!');
+            return;
+        }
+        if (!name || !email) { 
+            alert('⚠️ Inserisci il tuo nome ed email nel form di pagamento.'); 
+            return; 
+        }
+
+        // 1. Aggiorna DB
+        if (!appState[currentMatchId][currentSector]) {
+            appState[currentMatchId][currentSector] = [];
+        }
+        appState[currentMatchId][currentSector].push(selectedSeat.id);
+
+        // 2. Salva nel browser
+        saveStorage();
+
+        // 3. Modale di conferma
+        const match = matchesDB[currentMatchId];
+        const price = baseSectors[currentSector].price;
+        const modalMessage = document.getElementById('modal-message');
+        
+        if(modalMessage) {
+            modalMessage.innerHTML =
+                `<strong>${name}</strong>, il tuo biglietto per<br>
+                 <strong>Italia vs ${match.team}</strong> — ${baseSectors[currentSector].label}, Posto <strong>${selectedSeat.label}</strong><br><br>
+                 Totale pagato: <strong>€ ${(price + 2).toFixed(2)}</strong><br><br>
+                 Riceverai il QR code all'indirizzo <strong>${email}</strong>.`;
+        }
+
+        const confirmModal = document.getElementById('confirm-modal');
+        if(confirmModal) confirmModal.classList.add('active');
+    }
+
+    function closeModal() {
+        const confirmModal = document.getElementById('confirm-modal');
+        if(confirmModal) confirmModal.classList.remove('active');
+        
+        // Svuota selezione e aggiorna mappa
+        selectedSeat = null;
+        renderSeats();
+        updateSectorCounters(); // Ora scala correttamente i contatori a livello visivo!
+        updateSummary();
+        
+        const selectedInfo = document.getElementById('selected-info');
+        if(selectedInfo) selectedInfo.classList.remove('show');
+        
+        const nameEl = document.getElementById('field-name');
+        const emailEl = document.getElementById('field-email');
+        if(nameEl) nameEl.value = '';
+        if(emailEl) emailEl.value = '';
+    }
+
+    // ==========================================
+    // 5. ICONE PAGAMENTO
+    // ==========================================
+    function initPaymentButtons() {
+        const paymentButtons = document.querySelectorAll('.card-icon');
+        paymentButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                paymentButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    }
+
+    // ==========================================
+    // 6. AVVIO APPLICAZIONE
+    // ==========================================
+  // ==========================================
+    // 6. AVVIO APPLICAZIONE
+    // ==========================================
+
+    window.onload = () => {
+        initStorage();
+        initPaymentButtons();
+
+          let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Se scrollo verso il basso di almeno 100px, nascondo l'header
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                header.classList.add('header-hidden');
+            } else {
+                // Se scrollo verso l'alto, lo faccio riapparire
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+
+        // Controlla se c'è un parametro 'match' nell'URL (es: ?match=m2)
+        const urlParams = new URLSearchParams(window.location.search);
+        const matchParam = urlParams.get('match');
+
+        let matchToLoad = 'm1'; // Partita di default se non ci sono parametri
+        let targetBtn = document.querySelector('.match-btn'); // Bottone di default
+
+        // Se il parametro esiste nel nostro DB delle partite, usa quello
+        if (matchParam && matchesDB[matchParam]) {
+            matchToLoad = matchParam;
+            // Cerca il bottone corrispondente usando l'attributo onclick
+            targetBtn = document.querySelector(`.match-btn[onclick*="${matchParam}"]`) || targetBtn;
+        }
+
+        // Carica la partita trovata nell'URL (o quella di default)
+        loadMatch(matchToLoad, targetBtn);
+    };
+
+</script>
+
+</body>
+</html>
